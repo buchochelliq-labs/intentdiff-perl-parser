@@ -8,8 +8,8 @@
 //! - `sub_declaration`    → method-like (subroutine / method)
 //! - Labels: package → package name; sub → subroutine name.
 
-use intentumdiff_plugin_sdk::ts_convert::convert_semantic_classed;
-use intentumdiff_plugin_sdk::{
+use intentdiff_plugin_sdk::ts_convert::convert_semantic_classed;
+use intentdiff_plugin_sdk::{
     cst::CstNode,
     hash::structural_hash_with_memo,
     tree::{SemanticNode, SemanticNodeBuilder},
@@ -20,15 +20,15 @@ wit_bindgen::generate!({
     world: "parser-plugin",
 });
 
-use crate::exports::intentumdiff::plugin::parser::ExamplePair;
-use crate::exports::intentumdiff::plugin::parser::Guest;
-use crate::exports::intentumdiff::plugin::parser::LanguageInfoRecord;
-use crate::exports::intentumdiff::plugin::parser::ParserMode;
+use crate::exports::intentdiff::plugin::parser::ExamplePair;
+use crate::exports::intentdiff::plugin::parser::Guest;
+use crate::exports::intentdiff::plugin::parser::LanguageInfoRecord;
+use crate::exports::intentdiff::plugin::parser::ParserMode;
 
 const PLUGIN_METADATA: &str = include_str!("../plugin_metadata.info");
 
 fn language_info_for(ids: Vec<String>) -> Vec<LanguageInfoRecord> {
-    let metadata = intentumdiff_plugin_sdk::metadata::parse_plugin_metadata(PLUGIN_METADATA);
+    let metadata = intentdiff_plugin_sdk::metadata::parse_plugin_metadata(PLUGIN_METADATA);
     ids.into_iter()
         .map(|language_id| {
             let info = metadata.language_or_default(&language_id);

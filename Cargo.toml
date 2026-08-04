@@ -10,7 +10,7 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-# ts-convert is USED by this crate (lib.rs `use intentumdiff_plugin_sdk::ts_convert`) and must be
+# ts-convert is USED by this crate (lib.rs `use intentdiff_plugin_sdk::ts_convert`) and must be
 # declared explicitly: inside the monorepo workspace, feature unification from sibling members
 # enabled it silently; a standalone build (the #82 split repo) fails without it.
 intentumdiff-plugin-sdk = { git = "https://github.com/buchochelliq-labs/intentumdiff-plugin-sdk", tag = "v0.1.0", features = ["ts-convert"] }
